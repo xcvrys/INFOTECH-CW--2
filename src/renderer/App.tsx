@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import './App.css';
 
@@ -17,17 +17,23 @@ export default function App() {
 
 const PageWindow: FC<PageWindowProps> = ({ onDelete }) => {
   return (
-    <Draggable>
-      <div id="pageWindow">
-        <div id="statusBar">
-          <p id="closeWindowBtn" onClick={onDelete}>
-            X
-          </p>
+    <>
+      <Draggable handle="strong">
+        <div>
+          <div id="pageWindow">
+            <strong className="cursor">
+              <div>Drag here</div>
+            </strong>
+            <div id="statusBar">
+              <p id="closeWindowBtn" onClick={onDelete}>
+                X
+              </p>
+            </div>
+            <webview id="webview" src="https://www.google.com/"></webview>
+          </div>
         </div>
-
-        <webview id="webview" src="https://www.google.com/"></webview>
-      </div>
-    </Draggable>
+      </Draggable>
+    </>
   );
 };
 interface PageWindowProps {
