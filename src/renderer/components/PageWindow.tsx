@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import Draggable from 'react-draggable';
+import style from '../../style/css/PageWindow.Module.css';
 
 const PageWindow: FC<PageWindowProps> = ({ onDelete, url }) => {
   const [isBeingDragged, setIsBeingDragged] = useState<boolean>(false);
@@ -10,17 +11,16 @@ const PageWindow: FC<PageWindowProps> = ({ onDelete, url }) => {
         onStart={() => setIsBeingDragged(true)}
         onStop={() => setIsBeingDragged(false)}
       >
-        <div>
+        <div className={style.draggable}>
           <div id="pageWindow">
-            <strong className="cursor">
-              <div>Drag here</div>
+            <strong>
+              <div className={style.titleBar}>
+                <div className={style.titleBarTitle}>Hello World</div>
+                <div className={style.titleBarClose} />
+                <div className={style.titleBarMax} />
+                <div className={style.titleBarMin} />
+              </div>
             </strong>
-            <div id="statusBar">
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-              <p id="closeWindowBtn" onClick={onDelete}>
-                X
-              </p>
-            </div>
             {!isBeingDragged ? <webview id="webview" src={url} /> : null}
           </div>
         </div>

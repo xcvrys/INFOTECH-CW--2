@@ -1,19 +1,9 @@
 body {
   width: 100vw;
   height: 100vh;
-  margin: 0px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#webview {
-  min-width: 25%;
-  min-height: 25%;
-  padding: 20;
-  border: 5px solid orange;
-  resize: both;
-  overflow: auto;
-  display: inline-flex !important;
+  margin: 0;
+  padding: 0;
+  background: url(https://i.imgur.com/lojmr.jpg) no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
 }

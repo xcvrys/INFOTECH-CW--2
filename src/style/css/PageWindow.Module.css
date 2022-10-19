@@ -1,0 +1,101 @@
+.titleBar {
+  width: 100%;
+  height: 35px;
+  background: linear-gradient(
+    to bottom,
+    #4094ff 0%,
+    #0056e4 13%,
+    #0056e4 71%,
+    #16428b 100%
+  );
+}
+
+.titleBar .titleBarTitle {
+  position: absolute;
+  top: 7.5px;
+  left: 7.5px;
+  color: white;
+  text-shadow: 1px 1px #10397e;
+  font-size: 15px;
+  font-family: Tahoma;
+}
+
+.titleBar .titleBarClose,
+.titleBar .titleBarMax,
+.titleBar .titleBarMin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  right: 5px;
+  border-radius: 2px;
+  border: 1px solid white;
+}
+
+.titleBar .titleBarClose {
+  background: linear-gradient(135deg, #f1a689 0%, #c0442a 50%, #c2311e 100%);
+}
+
+.titleBarClose:before,
+.titleBarClose:after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  top: 9px;
+  box-shadow: 0 0 2px 0 #ccc;
+}
+
+.titleBarClose:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: 3px;
+}
+
+.titleBarClose:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  right: 3px;
+}
+
+.titleBar .titleBarMax,
+.titleBar .titleBarMin {
+  background: linear-gradient(135deg, #7eaed6 0%, #1b72ff 50%, #1655be 100%);
+}
+
+.titleBar .titleBarMax {
+  right: 30px;
+}
+
+.titleBar .titleBarMin {
+  right: 55px;
+}
+
+.titleBarMax:after,
+.titleBarMin:after {
+  content: '';
+  position: absolute;
+  box-shadow: 0 0 0px 0 #ccc;
+}
+
+.titleBarMax:after {
+  width: 10px;
+  height: 8px;
+  border: 1px solid white;
+  border-top: 3px solid white;
+  top: 4px;
+  left: 4px;
+}
+
+.titleBarMin:after {
+  width: 10px;
+  border-bottom: 2px solid white;
+  bottom: 4px;
+  left: 5px;
+}
+
+/*# sourceMappingURL=PageWindow.Module.css.map */
