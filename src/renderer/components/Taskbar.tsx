@@ -4,6 +4,7 @@ import React, { FC, useState } from 'react';
 import { nanoid } from 'nanoid';
 import useDesktopAppStore from '../../state/DesktopAppStore';
 import style from '../../style/css/Taskbar.Module.css';
+import win from './win.png';
 
 const Taskbar: FC = () => {
   const pagesTaskbarDisplay = useDesktopAppStore((s) => s.pagesTaskbarDisplay);
@@ -24,7 +25,7 @@ const Taskbar: FC = () => {
             setshowMenu(!showMenu);
           }}
         >
-          <img src="//i.imgur.com/PzXcMsP.png" alt="Windows" />
+          <img src={win} alt="Windows" />
           <span>Windows</span>
         </div>
         <div className={style.taskbarContent}>

@@ -4,6 +4,7 @@ import WebShortcuts from './WebShortcuts';
 import useDesktopAppStore, { BrowserPage } from '../../state/DesktopAppStore';
 import Taskbar from './Taskbar';
 import RunBox from './RunBox';
+// @ts-ignore
 import startup from '../../../audio/startup.mp3';
 
 const Desktop: FC = () => {

@@ -6,6 +6,7 @@ import Draggable from 'react-draggable';
 import useDesktopAppStore from '../../state/DesktopAppStore';
 // import style from '../../style/css/PageWindow.Module.css';
 import Web from './web';
+// @ts-ignore
 import start from '../../../audio/start.mp3';
 
 const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {

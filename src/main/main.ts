@@ -74,6 +74,7 @@ const createWindow = async () => {
     width: 1024,
     height: 728,
     icon: getAssetPath('icon.png'),
+    autoHideMenuBar: true,
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
@@ -99,8 +100,9 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
+  /* const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
+*/
 
   // Open urls in the user's browser
   mainWindow.webContents.setWindowOpenHandler((edata) => {
