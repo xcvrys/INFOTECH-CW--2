@@ -32,12 +32,15 @@ const useDesktopAppStore = create<DesktopAppStoreProps>((set) => ({
   },
   openPage: (pageURL) => {
     set((store) => {
+      const url = pageURL.includes('https://')
+        ? pageURL
+        : `https://google.com/search?q=${pageURL}`;
       const instanceID = nanoid(10);
       const pageContent = (
         <PageWindow
           key={instanceID}
           onDelete={() => useDesktopAppStore.getState().deletePage(instanceID)}
-          url={pageURL}
+          url={url}
           pageID={instanceID}
         />
       );

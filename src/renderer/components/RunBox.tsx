@@ -1,8 +1,10 @@
 /* eslint-disable react/button-has-type */
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import style from '../../style/css/RunBox.Module.css';
+import useDesktopAppStore from '../../state/DesktopAppStore';
 
 const RunBox: FC = () => {
+  const [userInput, setUserInput] = useState<string>('');
   return (
     <>
       <div className={style.main}>
@@ -26,11 +28,18 @@ const RunBox: FC = () => {
             <p>
               <span>O</span>pen:
             </p>
-            <input placeholder="URL" />
+            <input
+              placeholder="URL"
+              onChange={(e) => setUserInput(e.target.value)}
+            />
           </div>
 
           <div className={style.btn}>
-            <button>OK</button>
+            <button
+              onClick={() => useDesktopAppStore.getState().openPage(userInput)}
+            >
+              OK
+            </button>
             <button disabled>Cancel</button>
             <button disabled>Browse...</button>
           </div>
