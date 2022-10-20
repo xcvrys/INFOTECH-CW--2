@@ -25,15 +25,18 @@
     background-image: url(https://raw.githubusercontent.com/tdcosta100/WindowsXP/master/images/Themes/Blue/StartButton.png);
     background-repeat: no-repeat;
     image-rendering: pixelated;
+    cursor: pointer;
     img {
       width: auto;
       height: 50%;
       margin: 0 0.5rem;
+      user-select: none;
     }
     span {
       color: white;
       font-family: Tahoma;
       font-size: 0.75rem;
+      user-select: none;
     }
   }
   img {
@@ -89,4 +92,14 @@
       }
     }
   }
+}
+.Menu {
+  position: absolute;
+  width: 408px;
+  height: 500px;
+  bottom: 31px;
+  background-image: url(https://image.ibb.co/ckY5yd/start_Menu.png);
+  background-size: contain;
+  border-top-right-radius: 5px;
+  z-index: 2 !important;
 }

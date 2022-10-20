@@ -1,10 +1,13 @@
-import React, { FC } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { FC, useState } from 'react';
 import { nanoid } from 'nanoid';
 import useDesktopAppStore from '../../state/DesktopAppStore';
 import style from '../../style/css/Taskbar.Module.css';
 
 const Taskbar: FC = () => {
   const pagesTaskbarDisplay = useDesktopAppStore((s) => s.pagesTaskbarDisplay);
+  const [showMenu, setshowMenu] = useState<boolean>(false);
 
   const now = new Date();
   const time = `${now.getHours().toString().padStart(2, '0')}:${now
@@ -13,35 +16,37 @@ const Taskbar: FC = () => {
     .padStart(2, '0')}`;
 
   return (
-    <div>
-      <>
-        <div className={style.taskbar}>
-          <div className={style.green}>
-            <img src="//i.imgur.com/PzXcMsP.png" alt="Windows" />
-            <span>Windows</span>
-          </div>
-          <div className={style.taskbarContent}>
-            {Object.entries(pagesTaskbarDisplay).map(([key, value]) => (
-              <button
-                type="button"
-                key={nanoid(10)}
-                onClick={() =>
-                  useDesktopAppStore.getState().setFocusedPage(key)
-                }
-              >
-                <p>{value}</p>
-              </button>
-            ))}
-          </div>
-          <img src="https://image.ibb.co/d1cJ25/unnamed.png" alt="speaker" />
-          <img
-            src="https://image.ibb.co/b6bxUk/bluetooth_logo.png"
-            alt="bluetooth"
-          />
-          <p>{time}</p>
+    <>
+      <div className={style.taskbar}>
+        <div
+          className={style.green}
+          onClick={() => {
+            setshowMenu(!showMenu);
+          }}
+        >
+          <img src="//i.imgur.com/PzXcMsP.png" alt="Windows" />
+          <span>Windows</span>
         </div>
-      </>
-    </div>
+        <div className={style.taskbarContent}>
+          {Object.entries(pagesTaskbarDisplay).map(([key, value]) => (
+            <button
+              type="button"
+              key={nanoid(10)}
+              onClick={() => useDesktopAppStore.getState().setFocusedPage(key)}
+            >
+              <p>{value}</p>
+            </button>
+          ))}
+        </div>
+        <img src="https://image.ibb.co/d1cJ25/unnamed.png" alt="speaker" />
+        <img
+          src="https://image.ibb.co/b6bxUk/bluetooth_logo.png"
+          alt="bluetooth"
+        />
+        <p>{time}</p>
+      </div>
+      {showMenu ? <div className={style.Menu} /> : <div />}
+    </>
   );
 };
 
