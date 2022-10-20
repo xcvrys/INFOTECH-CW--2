@@ -98,4 +98,10 @@
   left: 5px;
 }
 
+.titleBarClose,
+.titleBarMax,
+.titleBarMin {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=PageWindow.Module.css.map */

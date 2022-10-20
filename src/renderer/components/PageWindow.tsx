@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, useState } from 'react';
 import Draggable from 'react-draggable';
+// eslint-disable-next-line import/no-cycle
 import useDesktopAppStore from '../../state/DesktopAppStore';
 import style from '../../style/css/PageWindow.Module.css';
 
@@ -24,22 +27,16 @@ const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
           <div id="pageWindow">
             <strong>
               <div className={style.titleBar}>
-                <div className={style.titleBarTitle}>Hello World</div>
-                <div className={style.titleBarClose} />
+                <div className={style.titleBarTitle}>{url}</div>
+                <div className={style.titleBarClose} onClick={onDelete} />
                 <div className={style.titleBarMax} />
                 <div className={style.titleBarMin} />
               </div>
             </strong>
-            <div id="statusBar">
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-              <p id="closeWindowBtn" onClick={onDelete}>
-                X
-              </p>
-            </div>
             {!isBeingDragged ? (
               <webview id="webview" src={url} />
             ) : (
-              <h1>placeholder</h1>
+              <h1>Dragging Window</h1>
             )}
           </div>
         </div>
