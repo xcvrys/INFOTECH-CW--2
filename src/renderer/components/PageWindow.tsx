@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import Draggable from 'react-draggable';
 import useDesktopAppStore from '../../state/DesktopAppStore';
+import style from '../../style/css/PageWindow.Module.css';
 
 const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
   const [isBeingDragged, setIsBeingDragged] = useState<boolean>(false);
@@ -14,11 +15,20 @@ const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
         onMouseDown={() => useDesktopAppStore.getState().setFocusedPage(pageID)}
       >
         <div
-          className={currentlyFocusedPage === pageID ? 'focused' : 'unfocused'}
+          className={
+            `draggable ${currentlyFocusedPage}` === pageID
+              ? 'focused'
+              : 'unfocused'
+          }
         >
           <div id="pageWindow">
-            <strong className="cursor">
-              <div>Drag here</div>
+            <strong>
+              <div className={style.titleBar}>
+                <div className={style.titleBarTitle}>Hello World</div>
+                <div className={style.titleBarClose} />
+                <div className={style.titleBarMax} />
+                <div className={style.titleBarMin} />
+              </div>
             </strong>
             <div id="statusBar">
               {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
