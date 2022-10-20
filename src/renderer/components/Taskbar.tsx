@@ -16,7 +16,10 @@ const Taskbar: FC = () => {
     <div>
       <>
         <div className={style.taskbar}>
-          <img src="//i.imgur.com/PzXcMsP.png" alt="Windows" />
+          <div className={style.green}>
+            <img src="//i.imgur.com/PzXcMsP.png" alt="Windows" />
+            <span>Windows</span>
+          </div>
           <div className={style.taskbarContent}>
             {Object.entries(pagesTaskbarDisplay).map(([key, value]) => (
               <button

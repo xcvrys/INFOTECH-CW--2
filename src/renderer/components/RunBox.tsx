@@ -1,7 +1,8 @@
-import react, { FC } from 'react';
+/* eslint-disable react/button-has-type */
+import { FC } from 'react';
 import style from '../../style/css/RunBox.Module.css';
 
-const RunBox = () => {
+const RunBox: FC = () => {
   return (
     <>
       <div className={style.main}>
@@ -15,7 +16,7 @@ const RunBox = () => {
         <div className={style.content}>
           <div className={style.header}>
             <img
-              src="https://coddec.github.io/Classic-Shell/www.classicshell.net/forum/download/file0345.png?id=4760"
+              src="https://i.imgur.com/B0okcoX_d.webp?maxwidth=760&fidelity=grand"
               alt=""
             />
             <p>Type the URL and Windows will open it for you.</p>
@@ -25,13 +26,13 @@ const RunBox = () => {
             <p>
               <span>O</span>pen:
             </p>
-            <input placeholder="%apppData%" />
+            <input placeholder="URL" />
           </div>
 
           <div className={style.btn}>
             <button>OK</button>
-            <button>Cancel</button>
-            <button>Browse...</button>
+            <button disabled>Cancel</button>
+            <button disabled>Browse...</button>
           </div>
         </div>
       </div>

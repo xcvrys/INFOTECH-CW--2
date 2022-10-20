@@ -7,6 +7,7 @@ import RunBox from './RunBox';
 
 const Desktop: FC = () => {
   const pages = useDesktopAppStore((s) => s.pages);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const p = useDesktopAppStore((s) => s.focusedPage);
   return (
     <>

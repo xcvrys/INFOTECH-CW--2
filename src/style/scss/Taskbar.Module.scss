@@ -17,7 +17,25 @@
   );
   width: 100vw;
   height: 30px;
-
+  .green {
+    height: 30px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    background-image: url(https://raw.githubusercontent.com/tdcosta100/WindowsXP/master/images/Themes/Blue/StartButton.png);
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    img {
+      width: auto;
+      height: 50%;
+      margin: 0 0.5rem;
+    }
+    span {
+      color: white;
+      font-family: Tahoma;
+      font-size: 0.75rem;
+    }
+  }
   img {
     width: auto;
     height: 80%;

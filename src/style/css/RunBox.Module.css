@@ -1,19 +1,22 @@
 .main {
   position: absolute;
   bottom: 50px;
-  margin: 1rem;
+  margin: 0.5rem;
   width: 375px;
   height: 175px;
   border-radius: 7px 7px 0px 0px;
-  text-shadow: 1px 1px #10397e;
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: Tahoma;
+  border: #0056e4 solid 1px;
+  z-index: 1;
 }
 .main .titleBarTitle {
   border-radius: 7px 7px 0px 0px;
+  text-shadow: 1px 1px #10397e;
   font-size: 0.9rem;
   height: 20px;
   width: 100%;
+  color: white;
   background: linear-gradient(to bottom, #4094ff 0%, #0056e4 13%, #0056e4 71%, #16428b 100%);
 }
 .main .titleBarTitle p {
@@ -54,13 +57,13 @@
   right: 1px;
 }
 .main .inp {
-  background-color: #f1a689;
   width: 100%;
   text-align: center;
   padding: 0.25rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.85rem;
 }
 .main .inp p {
   padding: 0px;
@@ -70,8 +73,9 @@
   text-decoration: underline;
 }
 .main .inp input {
+  font-size: 0.8rem;
   width: 70%;
-  direction: rtl;
+  text-align: right;
 }
 .main .content {
   width: 100%;
@@ -83,22 +87,23 @@
   flex-direction: column;
 }
 .main .content .header {
-  background-color: violet;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 90%;
 }
 .main .content .header img {
-  width: 65px;
-  height: 65px;
+  width: 55px;
+  height: 55px;
 }
 .main .content .header p {
   margin: 0px;
   padding: 0px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 .main .content .btn button {
   margin: 3px;
+  font-size: 0.7rem;
 }
 .main .content .btn button:nth-child(1) {
   margin-left: 100px;

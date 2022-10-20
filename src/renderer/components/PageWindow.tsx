@@ -4,14 +4,11 @@ import React, { FC, useState } from 'react';
 import Draggable from 'react-draggable';
 // eslint-disable-next-line import/no-cycle
 import useDesktopAppStore from '../../state/DesktopAppStore';
-import style from '../../style/css/PageWindow.Module.css';
-
-const getRandomPagePosition = () => ({
-  top: Math.floor(Math.random() * (500 - 50) + 50),
-  left: Math.floor(Math.random() * (500 - 50) + 50),
-});
+// import style from '../../style/css/PageWindow.Module.css';
+import Web from './web';
 
 const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isBeingDragged, setIsBeingDragged] = useState<boolean>(false);
   const currentlyFocusedPage = useDesktopAppStore((s) => s.focusedPage);
   return (
@@ -27,17 +24,7 @@ const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
             currentlyFocusedPage === pageID ? 'focused' : 'unfocused'
           }`}
         >
-          <div id="pageWindow" style={getRandomPagePosition()}>
-            <strong>
-              <div className={style.titleBar}>
-                <div className={style.titleBarTitle}>{url}</div>
-                <div className={style.titleBarClose} onClick={onDelete} />
-                <div className={style.titleBarMax} />
-                <div className={style.titleBarMin} />
-              </div>
-            </strong>
-            <webview id="webview" src={url} />
-          </div>
+          <Web link={url} onDelete={onDelete} />
         </div>
       </Draggable>
     </>
