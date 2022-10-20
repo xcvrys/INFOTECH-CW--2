@@ -9,6 +9,7 @@ import startup from '../../../audio/startup.mp3';
 
 const Desktop: FC = () => {
   const pages = useDesktopAppStore((s) => s.pages);
+  const runBoxVisible = useDesktopAppStore((s) => s.runBoxShown);
   const [explorerFinishedLoading, setExplorerFinishedLoading] =
     useState<boolean>(false);
   useEffect(() => {
@@ -31,7 +32,7 @@ const Desktop: FC = () => {
           <WebShortcuts openPage={useDesktopAppStore.getState().openPage} />
           <Taskbar />
           {Object.values(pages).map((p: BrowserPage) => p.content)}
-          <RunBox />
+          {runBoxVisible && <RunBox />}
         </>
       )}
     </>

@@ -8,11 +8,14 @@ const RunBox: FC = () => {
   return (
     <>
       <div className={style.main}>
-        <div>
+        <div id="titleBar">
           <div className={style.titleBarTitle}>
             <p>Run</p>
           </div>
-          <div className={style.titleBarClose} />
+          <div
+            className={style.titleBarClose}
+            onClick={() => useDesktopAppStore.getState().hideRunBox()}
+          />
         </div>
 
         <div className={style.content}>
@@ -40,7 +43,9 @@ const RunBox: FC = () => {
             >
               OK
             </button>
-            <button disabled>Cancel</button>
+            <button onClick={() => useDesktopAppStore.getState().hideRunBox()}>
+              Cancel
+            </button>
             <button disabled>Browse...</button>
           </div>
         </div>

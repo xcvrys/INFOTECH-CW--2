@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import style from '../../style/css/WebShortcuts.Module.css';
+import useDesktopAppStore from '../../state/DesktopAppStore';
 
 const WebShortcuts: FC<WebShortcutsProps> = ({ openPage }) => {
   return (
@@ -36,6 +37,20 @@ const WebShortcuts: FC<WebShortcutsProps> = ({ openPage }) => {
           >
             <img src="https://youtube.com/favicon.ico" alt="youtube" />
             <span>youtube</span>
+          </button>
+        </div>
+        <div className={style.web}>
+          <button
+            type="button"
+            onClick={() => {
+              useDesktopAppStore.getState().showRunBox();
+            }}
+          >
+            <img
+              src="https://i.imgur.com/B0okcoX_d.webp?maxwidth=760&fidelity=grand"
+              alt="run_other"
+            />
+            <span>Other...</span>
           </button>
         </div>
       </div>

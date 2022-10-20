@@ -8,7 +8,7 @@ import win from './win.png';
 
 const Taskbar: FC = () => {
   const pagesTaskbarDisplay = useDesktopAppStore((s) => s.pagesTaskbarDisplay);
-  const [showMenu, setshowMenu] = useState<boolean>(false);
+  const showMenu = useDesktopAppStore((s) => s.showDesktop);
 
   const now = new Date();
   const time = `${now.getHours().toString().padStart(2, '0')}:${now
@@ -22,7 +22,7 @@ const Taskbar: FC = () => {
         <div
           className={style.green}
           onClick={() => {
-            setshowMenu(!showMenu);
+            useDesktopAppStore.getState().toggleStartMenu();
           }}
         >
           <img src={win} alt="Windows" />

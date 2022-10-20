@@ -8,7 +8,8 @@ const useDesktopAppStore = create<DesktopAppStoreProps>((set) => ({
   pages: {},
   pagesTaskbarDisplay: {},
   focusedPage: '',
-
+  runBoxShown: false,
+  showDesktop: false,
   setFocusedPage: (pageID) => {
     set((store) => {
       const filteredPages = { ...store.pages };
@@ -62,15 +63,33 @@ const useDesktopAppStore = create<DesktopAppStoreProps>((set) => ({
       };
     });
   },
+  showRunBox: () => {
+    set(() => ({ runBoxShown: true }));
+  },
+  hideRunBox: () => {
+    set(() => ({ runBoxShown: false }));
+  },
+  toggleStartMenu: () => {
+    set((s) => ({ showDesktop: !s.showDesktop }));
+  },
+  hideStartMenu: () => {
+    set(() => ({ showDesktop: false }));
+  },
 }));
 
 interface DesktopAppStoreProps {
   pages: BrowserPages;
   focusedPage: string;
+  runBoxShown: boolean;
+  showDesktop: boolean;
   setFocusedPage: (pageID: string) => void;
   deletePage: (pageID: string) => void;
   openPage: (pageURL: string) => void;
   pagesTaskbarDisplay: Record<string, string>;
+  showRunBox: () => void;
+  hideRunBox: () => void;
+  toggleStartMenu: () => void;
+  hideStartMenu: () => void;
 }
 
 interface BrowserPages {
