@@ -4,17 +4,7 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  background: linear-gradient(
-    180deg,
-    #0997ff,
-    #0053ee 8%,
-    #0050ee 40%,
-    #06f 88%,
-    #06f 93%,
-    #005bff 95%,
-    #003dd7 96%,
-    #003dd7
-  );
+  background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
   width: 100vw;
   height: 30px;
 }
@@ -48,17 +38,7 @@
   background-color: transparent;
   cursor: pointer;
   height: 80%;
-  background: linear-gradient(
-    180deg,
-    #0997ff,
-    #0053ee 8%,
-    #0050ee 40%,
-    #06f 88%,
-    #06f 93%,
-    #005bff 95%,
-    #003dd7 96%,
-    #003dd7
-  );
+  background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
   border-radius: 2px;
   box-shadow: 0px 1px 2px #0d0057;
 }

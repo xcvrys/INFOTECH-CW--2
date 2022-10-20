@@ -16,8 +16,8 @@ body {
   overflow: hidden;
   border: #0056e4 solid 1px;
   border-radius: 7px 7px 0 0;
-  background-color: antiquewhite;
 }
+
 #pageWindow h1 {
   width: 100%;
   text-align: center;
@@ -28,7 +28,7 @@ body {
 }
 
 .focused {
-  z-index: +1 !important;
+  z-index: 100 !important;
 }
 
 .unfocused {

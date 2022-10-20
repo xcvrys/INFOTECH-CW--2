@@ -7,14 +7,16 @@ const Taskbar: FC = () => {
   const pagesTaskbarDisplay = useDesktopAppStore((s) => s.pagesTaskbarDisplay);
 
   const now = new Date();
-  const time = `${now.getHours()}:${now.getMinutes()}`;
+  const time = `${now.getHours().toString().padStart(2, '0')}:${now
+    .getMinutes()
+    .toString()
+    .padStart(2, '0')}`;
 
   return (
     <div>
       <>
         <div className={style.taskbar}>
           <img src="//i.imgur.com/PzXcMsP.png" alt="Windows" />
-
           <div className={style.taskbarContent}>
             {Object.entries(pagesTaskbarDisplay).map(([key, value]) => (
               <button

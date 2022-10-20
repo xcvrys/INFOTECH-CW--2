@@ -1,16 +1,22 @@
 import create from 'zustand';
 import React, { FC } from 'react';
 import { nanoid } from 'nanoid';
+// eslint-disable-next-line import/no-cycle
 import PageWindow, { PageWindowProps } from '../renderer/components/PageWindow';
 
 const useDesktopAppStore = create<DesktopAppStoreProps>((set) => ({
   pages: {},
   pagesTaskbarDisplay: {},
   focusedPage: '',
+
   setFocusedPage: (pageID) => {
-    set(() => ({
-      focusedPage: pageID,
-    }));
+    set((store) => {
+      const filteredPages = { ...store.pages };
+      const focusedPage = filteredPages[pageID];
+      delete filteredPages[pageID];
+      filteredPages[pageID] = focusedPage;
+      return { pages: filteredPages, focusedPage: pageID };
+    });
   },
   deletePage: (pageID) => {
     set((store) => {

@@ -6,6 +6,11 @@ import Draggable from 'react-draggable';
 import useDesktopAppStore from '../../state/DesktopAppStore';
 import style from '../../style/css/PageWindow.Module.css';
 
+const getRandomPagePosition = () => ({
+  top: Math.floor(Math.random() * (500 - 50) + 50),
+  left: Math.floor(Math.random() * (500 - 50) + 50),
+});
+
 const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
   const [isBeingDragged, setIsBeingDragged] = useState<boolean>(false);
   const currentlyFocusedPage = useDesktopAppStore((s) => s.focusedPage);
@@ -18,13 +23,11 @@ const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
         onMouseDown={() => useDesktopAppStore.getState().setFocusedPage(pageID)}
       >
         <div
-          className={
-            `draggable ${currentlyFocusedPage}` === pageID
-              ? 'focused'
-              : 'unfocused'
-          }
+          className={`draggable ${
+            currentlyFocusedPage === pageID ? 'focused' : 'unfocused'
+          }`}
         >
-          <div id="pageWindow">
+          <div id="pageWindow" style={getRandomPagePosition()}>
             <strong>
               <div className={style.titleBar}>
                 <div className={style.titleBarTitle}>{url}</div>
@@ -33,11 +36,7 @@ const PageWindow: FC<PageWindowProps> = ({ onDelete, url, pageID }) => {
                 <div className={style.titleBarMin} />
               </div>
             </strong>
-            {!isBeingDragged ? (
-              <webview id="webview" src={url} />
-            ) : (
-              <h1>Dragging Window</h1>
-            )}
+            <webview id="webview" src={url} />
           </div>
         </div>
       </Draggable>
